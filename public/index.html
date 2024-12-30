@@ -11,7 +11,7 @@
 	</head>
 	<body>
 		<div class="container">
-			<!-- Login View -->
+			<!-- LOGIN VIEW -->
 			<div id="loginView">
 				<h1>Login</h1>
 				<form id="loginForm">
@@ -35,50 +35,7 @@
 				<button id="guestLoginButton">Login as Guest</button>
 			</div>
 
-			<!-- User Messaging View -->
-			<div
-				id="userView"
-				class="hidden"
-			>
-				<h1>Support</h1>
-
-				<h2>Messages</h2>
-				<div id="messagesContainer"></div>
-				<form id="messageForm">
-					<textarea
-						id="message"
-						placeholder="Enter your message"
-						required
-						onkeydown="if (event.key === 'Enter' && !event.shiftKey) { event.preventDefault(); document.getElementById('messageForm').dispatchEvent(new Event('submit')); }"
-					></textarea>
-					<br />
-					<button type="submit">Send Message</button>
-				</form>
-
-				<button
-					class="logout"
-					onclick="logout()"
-				>
-					Logout
-				</button>
-			</div>
-
-			<!-- Admin View -->
-			<div
-				id="adminView"
-				class="hidden"
-			>
-				<h1>Admin Dashboard</h1>
-				<h2>Users and Messages</h2>
-				<div id="usersContainer"></div>
-				<button
-					class="logout"
-					onclick="logout()"
-				>
-					Logout
-				</button>
-			</div>
-			<!-- Register View -->
+			<!-- REGISTER VIEW -->
 			<div
 				id="registerView"
 				class="hidden"
@@ -103,29 +60,121 @@
 				<button onclick="switchView('loginView')">Back to Login</button>
 			</div>
 
-			<!-- Admin Messaging View -->
+			<!-- USER VIEW -->
 			<div
-				id="adminMessagingView"
+				id="userView"
 				class="hidden"
 			>
-				<h2>Messages with <span id="selectedUser"></span></h2>
-				<div id="adminMessagesContainer"></div>
-				<form id="adminMessageForm">
-					<textarea
-						id="adminMessage"
-						placeholder="Enter your response"
+				<h1>Support Tickets</h1>
+
+				<!-- TICKET CREATION SECTION -->
+				<div class="ticket-creation">
+					<label for="ticketSubject">Select the subject:</label>
+					<select
+						id="ticketSubject"
 						required
-						onkeydown="if (event.key === 'Enter' && !event.shiftKey) { event.preventDefault(); document.getElementById('adminMessageForm').dispatchEvent(new Event('submit')); }"
+					>
+						<option value="Defected Product">
+							Defected Product
+						</option>
+						<option value="Late Order">Late Order</option>
+						<option value="Lost Product">Lost Product</option>
+						<option value="Suggestion">Suggestion</option>
+					</select>
+					<br />
+					<label for="ticketTopic">Enter the topic:</label>
+					<input
+						type="text"
+						id="ticketTopic"
+						placeholder="Brief topic for your ticket"
+						required
+					/>
+					<br />
+					<button id="createTicketButton">Create Ticket</button>
+				</div>
+
+				<!-- USER TICKET LIST -->
+
+				<h2>Your Tickets</h2>
+				<div>
+					<button id="userFilterAllBtn">All Tickets</button>
+					<button id="userFilterResolvedBtn">Resolved</button>
+					<button id="userFilterUnresolvedBtn">Unresolved</button>
+				</div>
+				<div id="userTicketsContainer"></div>
+
+				<button
+					class="logout"
+					onclick="logout()"
+				>
+					Logout
+				</button>
+			</div>
+
+			<!-- ADMIN VIEW -->
+			<div
+				id="adminView"
+				class="hidden"
+			>
+				<h1>Admin Dashboard</h1>
+				<!-- NEW: Filter Buttons -->
+				<div>
+					<button id="filterAllBtn">All Tickets</button>
+					<button id="filterResolvedBtn">Resolved</button>
+					<button id="filterUnresolvedBtn">Unresolved</button>
+				</div>
+				<!-- ADMIN TICKET LIST -->
+				<h2>All Tickets</h2>
+				<div id="adminTicketsContainer"></div>
+
+				<button
+					class="logout"
+					onclick="logout()"
+				>
+					Logout
+				</button>
+			</div>
+
+			<!-- TICKET DETAIL VIEW (Shared by User & Admin) -->
+			<div
+				id="ticketDetailView"
+				class="hidden"
+			>
+				<h1>Ticket Details</h1>
+				<p>
+					<strong>Ticket ID:</strong>
+					<span id="ticketIdDisplay"></span>
+				</p>
+				<p>
+					<strong>Subject:</strong>
+					<span id="ticketSubjectDisplay"></span>
+				</p>
+				<p>
+					<strong>Topic:</strong>
+					<span id="ticketTopicDisplay"></span>
+				</p>
+
+				<h2>Messages</h2>
+				<div id="ticketMessagesContainer"></div>
+				<form id="ticketMessageForm">
+					<textarea
+						id="ticketMessageInput"
+						placeholder="Enter your message"
+						required
 					></textarea>
 					<br />
 					<button type="submit">Send Message</button>
 				</form>
+
+				<!-- NEW: Admin Resolve Button -->
 				<button
-					class="logout"
-					onclick="switchView('adminView')"
+					id="resolveTicketButton"
+					class="hidden"
 				>
-					Back to Admin Dashboard
+					Mark Ticket as Resolved
 				</button>
+
+				<button id="backToTicketsButton">Back to Tickets</button>
 			</div>
 		</div>
 
