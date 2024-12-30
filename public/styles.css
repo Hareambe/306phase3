@@ -1,0 +1,213 @@
+/* General Styles */
+body {
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+	background-color: #f9f9f9;
+	color: #333;
+}
+
+/* Container Styles */
+.container {
+	max-width: 600px;
+	margin: 50px auto;
+	background-color: #fff;
+	padding: 20px;
+	border-radius: 10px;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading Styles */
+h1 {
+	text-align: center;
+	color: #444;
+	font-size: 24px;
+	margin-bottom: 20px;
+}
+
+h2 {
+	color: #555;
+	font-size: 20px;
+	margin: 20px 0 10px;
+}
+
+/* Form Styles */
+/* General Form Styles */
+form {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 20px;
+}
+
+form input,
+form button {
+	font-size: 16px;
+	padding: 10px;
+	margin: 10px 0;
+	border-radius: 5px;
+	border: 1px solid #ddd;
+}
+
+form input:focus,
+form button:focus {
+	outline: none;
+	border-color: #007bff;
+	box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+form button {
+	background-color: #007bff;
+	color: #fff;
+	border: none;
+	cursor: pointer;
+}
+
+form button:hover {
+	background-color: #0056b3;
+}
+
+input,
+textarea,
+button {
+	font-size: 16px;
+	padding: 10px;
+	margin: 10px 0;
+	border-radius: 5px;
+	border: 1px solid #ddd;
+}
+
+input:focus,
+textarea:focus {
+	outline: none;
+	border-color: #007bff;
+	box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+textarea {
+	resize: none;
+	min-height: 100px;
+}
+
+button {
+	background-color: #007bff;
+	color: #fff;
+	border: none;
+	cursor: pointer;
+	padding: 10px;
+	font-size: 16px;
+	border-radius: 5px;
+	transition: background-color 0.3s ease;
+}
+
+button:hover {
+	background-color: #0056b3;
+}
+
+/* Logout Button */
+button.logout {
+	background-color: #dc3545;
+	margin-top: 20px;
+}
+
+button.logout:hover {
+	background-color: #a71d2a;
+}
+
+/* Messages Container */
+#messagesContainer,
+#adminMessagesContainer {
+	margin-top: 20px;
+	padding: 10px;
+	border: 1px solid #ddd;
+	border-radius: 10px;
+	background-color: #f9f9f9;
+	max-height: 400px;
+	overflow-y: auto;
+}
+
+/* Individual Messages */
+#messagesContainer div,
+#adminMessagesContainer div {
+	margin-bottom: 5px; /* Reduce margin */
+	padding: 8px; /* Reduce padding */
+	border-radius: 4px; /* Smaller rounded corners */
+	font-size: 14px; /* Smaller text size */
+	line-height: 1.4;
+}
+
+.user-message {
+	background-color: #17a2b8;
+	color: #fff;
+}
+
+.admin-message {
+	background-color: #28a745;
+	color: #fff;
+}
+
+/* User List Styles (Admin View) */
+.user-item {
+	padding: 10px;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	margin-bottom: 10px;
+	background-color: #f8f9fa;
+	display: flex;
+	flex-direction: column;
+}
+
+.user-item h3 {
+	margin: 0;
+	font-size: 18px;
+	color: #333;
+}
+
+.user-item div {
+	margin-top: 10px;
+}
+
+.user-item button {
+	align-self: flex-start;
+	background-color: #007bff;
+	color: #fff;
+	border: none;
+	padding: 5px 10px;
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 14px;
+}
+
+.user-item button:hover {
+	background-color: #0056b3;
+}
+
+/* Hidden View */
+.hidden {
+	display: none;
+}
+
+/* Back Button */
+button.back-button {
+	background-color: #6c757d;
+}
+
+button.back-button:hover {
+	background-color: #565e64;
+}
+
+/* Scrollbars for Messages */
+#messagesContainer::-webkit-scrollbar,
+#adminMessagesContainer::-webkit-scrollbar {
+	width: 6px;
+}
+
+#messagesContainer::-webkit-scrollbar-thumb,
+#adminMessagesContainer::-webkit-scrollbar-thumb {
+	background-color: #ccc;
+	border-radius: 10px;
+}
+
+#messagesContainer::-webkit-scrollbar-thumb:hover,
+#adminMessagesContainer::-webkit-scrollbar-thumb:hover {
+	background-color: #aaa;
+}

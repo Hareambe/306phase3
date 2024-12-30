@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Custom Login System</title>
+		<link
+			rel="stylesheet"
+			href="./styles.css"
+		/>
+		<script src="https://www.gstatic.com/firebasejs/9.21.0/firebase-app.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/9.21.0/firebase-database.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<!-- Login View -->
+			<div id="loginView">
+				<h1>Login</h1>
+				<form id="loginForm">
+					<input
+						type="text"
+						id="username"
+						placeholder="Username"
+						required
+					/><br />
+					<input
+						type="password"
+						id="password"
+						placeholder="Password"
+						required
+					/><br />
+					<button type="submit">Login</button>
+				</form>
+				<br />
+				<button onclick="switchView('registerView')">Register</button>
+				<br />
+				<button id="guestLoginButton">Login as Guest</button>
+			</div>
+
+			<!-- User Messaging View -->
+			<div
+				id="userView"
+				class="hidden"
+			>
+				<h1>Support</h1>
+
+				<h2>Messages</h2>
+				<div id="messagesContainer"></div>
+				<form id="messageForm">
+					<textarea
+						id="message"
+						placeholder="Enter your message"
+						required
+						onkeydown="if (event.key === 'Enter' && !event.shiftKey) { event.preventDefault(); document.getElementById('messageForm').dispatchEvent(new Event('submit')); }"
+					></textarea>
+					<br />
+					<button type="submit">Send Message</button>
+				</form>
+
+				<button
+					class="logout"
+					onclick="logout()"
+				>
+					Logout
+				</button>
+			</div>
+
+			<!-- Admin View -->
+			<div
+				id="adminView"
+				class="hidden"
+			>
+				<h1>Admin Dashboard</h1>
+				<h2>Users and Messages</h2>
+				<div id="usersContainer"></div>
+				<button
+					class="logout"
+					onclick="logout()"
+				>
+					Logout
+				</button>
+			</div>
+			<!-- Register View -->
+			<div
+				id="registerView"
+				class="hidden"
+			>
+				<h1>Register</h1>
+				<form id="registerForm">
+					<input
+						type="text"
+						id="registerUsername"
+						placeholder="Enter username"
+						required
+					/><br />
+					<input
+						type="password"
+						id="registerPassword"
+						placeholder="Enter password"
+						required
+					/><br />
+					<button type="submit">Register</button>
+				</form>
+				<br />
+				<button onclick="switchView('loginView')">Back to Login</button>
+			</div>
+
+			<!-- Admin Messaging View -->
+			<div
+				id="adminMessagingView"
+				class="hidden"
+			>
+				<h2>Messages with <span id="selectedUser"></span></h2>
+				<div id="adminMessagesContainer"></div>
+				<form id="adminMessageForm">
+					<textarea
+						id="adminMessage"
+						placeholder="Enter your response"
+						required
+						onkeydown="if (event.key === 'Enter' && !event.shiftKey) { event.preventDefault(); document.getElementById('adminMessageForm').dispatchEvent(new Event('submit')); }"
+					></textarea>
+					<br />
+					<button type="submit">Send Message</button>
+				</form>
+				<button
+					class="logout"
+					onclick="switchView('adminView')"
+				>
+					Back to Admin Dashboard
+				</button>
+			</div>
+		</div>
+
+		<script
+			type="module"
+			src="./app.js"
+		></script>
+	</body>
+</html>
